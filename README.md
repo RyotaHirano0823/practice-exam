@@ -1,5 +1,5 @@
 # Name
-practice-test
+practice-exam
  
 # DEMO
  
