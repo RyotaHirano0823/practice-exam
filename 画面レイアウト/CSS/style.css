@@ -1,0 +1,44 @@
+body {
+    background: rgb(182, 255, 251);
+}
+
+h1{
+    background-color:#085baf;
+    color:#fff;
+    text-align:center;
+    font-size:50px;
+}
+
+h2 {
+    padding: 1rem 2rem;
+    border: 3px solid #000;
+ }
+
+#question {
+    width: 80%;
+    margin: 0 auto 0 20px;
+}
+
+footer{
+    width: 100%;
+    background-color: #89c7de;
+    color: #fff;
+
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}
+
+#answer{
+    display: inline-block;      /* インラインブロック要素にする */
+    background-color:  #ccc;    /* 背景色指定 */
+}
+
+#questiontable{
+    display: inline-block;      /* インラインブロック要素にする */
+    background-color:  #ccc;    /* 背景色指定 */
+}
+
+#time{
+    display: inline-block;      /* インラインブロック要素にする */
+    background-color:  #486aff;    /* 背景色指定 */
+}
