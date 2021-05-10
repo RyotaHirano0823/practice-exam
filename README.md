@@ -1,4 +1,5 @@
-# Name practice-test
+# Name
+practice-test
  
 # DEMO
  
@@ -8,8 +9,9 @@
  
 # Installation
 
-# Usage git clone https://github.com/RyotaHirano0823/practice-test.git
- 
+# Usage git clone
+https://github.com/RyotaHirano0823/practice-test.git
+
 # Note
  
 # Author
