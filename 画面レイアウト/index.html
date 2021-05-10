@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML-TEST</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="test"></div>
+        <div id="question">
+            <h3>練習1</h3>
+            <p>問題 <label id="questiontext"></p>
+            <p>ア <label id="a"></p>
+            <p>イ <label id="i"></label></p>
+            <p>ウ <label id="u"></label></p>
+            <p>エ <label id="e"></label></p>
+        </div>
+        <footer>
+            <div id="questiontable">
+                <table border="1" width="250">
+                    <tr>
+                    <th>問題No</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    </tr>
+                    <tr>
+                    <td>回答</td>
+                    <td id="question1"></td>
+                    <td id="question2"></td>
+                    <td id="question3"></td>
+                    <td id="question4"></td>
+                    </tr>
+                    <tr>
+                    <td>チェック</td>
+                    <td id="check1"></td>
+                    <td id="check2"></td>
+                    <td id="check3"></td>
+                    <td id="check4"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="answer">
+            <p>回答欄<br>
+                <input type="radio" name="answerRadio" value="ア"> ア
+                <input type="radio" name="answerRadio" value="イ"> イ
+                <input type="radio" name="answerRadio" value="ウ"> ウ
+                <input type="radio" name="answerRadio" value="エ"> エ
+            </p>
+            <input type="button" value="次の問題" onclick="buttonClick()"/>
+            </div>
+            <div id="time">
+                <p>経過時間:<label id="timer"></p>
+                <button>採点する</button>
+            </div>
+        </footer>
+    </body>
+</html>
+
+<script type="text/javascript" src="scripts/test.js"></script>
