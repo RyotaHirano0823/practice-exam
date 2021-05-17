@@ -15,7 +15,7 @@ CREATE TABLE sentakusi(
   id serial,
   mondaiid int references mondai(id),
   hyozimei text,
-  create_time timestamp,
+  hyozizyunn int,
   PRIMARY KEY(id));
 
 CREATE TABLE answerset(
