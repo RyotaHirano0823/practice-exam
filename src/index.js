@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //コンポーネント読み込み
-import App from './App';
+import Master from './components/Master';
 
 //(id="root"のところに)描画
 ReactDOM.render(
-  <App />,
+  <Master />,
   document.getElementById('root')
 );
