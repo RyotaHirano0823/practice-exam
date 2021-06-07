@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const [time, setTime] = useState(null)
   useEffect(() => {
-    fetch('/api/time')
+    fetch('/api/pgtest')
       .then(res => res.json())
       .then(data => {
         setTime(data.current_timestamp)
