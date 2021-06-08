@@ -10,8 +10,8 @@ export default async (req, res) => {
     })
     client.connect()
 
-    // ������SQL�����s�����B���L�̗�́A���ݎ���
-    const { rows: results } = await client.query('select ms.mondaibun, m.text from mondai as ms inner join sentakusi as m on ms.id = m.mondaiset_id')
-    // �������̏ꍇ�́A���̂܂�results��ݒ�B1�����Ƃ킩���Ă���ꍇ��[0]
+    // 書いたSQLが実行される。下記の例は、現在時間
+    const { rows: results } = await client.query('select mondai.mondaibun, sentakusi.hyozimei from mondai inner join sentakusi on mondai.id = sentakusi.id')
+    // 複数県の場合は、そのままresultsを設定。1件だとわかっている場合は[0]
     res.status(200).json(results[0])
 }
