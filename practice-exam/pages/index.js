@@ -5,23 +5,16 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [mondaibun, setTime] = useState(null)
+  const [timer, settimer] = useState(null)
   useEffect(() => {
     fetch('/api/pgtest')
       .then(res => res.json())
       .then(data => {
         setTime(data.mondaibun)
         console.log(data)
-      })
-
-  }, [])
-  // setIntervalの基本
-  var timer1 = null;
-  var cnt = 0;
-  var minits = 0;
-
-  function event() {
-
-      cnt++;
+      });setInterval(() =>
+      {
+        cnt++;
 
       if(cnt == 60)
       {
@@ -31,23 +24,56 @@ export default function Home() {
       {
           if(minits == 0)
           {
-              document.getElementById('timer').innerHTML = cnt + "秒";
+            settimer(cnt + "秒");
           }
           else
           {
-              document.getElementById('timer').innerHTML = minits + "分" + cnt + "秒";
+            settimer(minits + "分" + cnt + "秒");
           }
           
       }
       else
       {
-          cnt = 0;
-          document.getElementById('timer').innerHTML = minits + "分" + cnt + "秒";
+        cnt = 0;
+        settimer(minits + "分" + cnt + "秒");
       }
-  }
+      }, 1000);
+  }, [])
+  // setIntervalの基本
+  var cnt = 0;
+  var minits = 0;
+
+  // function testevent (){
+
+  //     cnt++;
+
+  //     if(cnt == 60)
+  //     {
+  //         minits += 1;
+  //     }
+  //     if(cnt < 60)
+  //     {
+  //         if(minits == 0)
+  //         {
+  //           settimer(cnt + "秒");
+  //         }
+  //         else
+  //         {
+  //           settimer(minits + "分" + cnt + "秒");
+  //         }
+          
+  //     }
+  //     else
+  //     {
+  //       cnt = 0;
+  //       settimer(minits + "分" + cnt + "秒");
+  //     }
+  //     console.log(timer2);
+  // }
 
   // タイマー開始
-  timer1 = setInterval(event, 1000);
+  //setInterval(event, 1000);
+  //console.log(timer2);
 
   return (
     <div className={styles.container}>
@@ -74,10 +100,10 @@ export default function Home() {
             <input type="radio" name="answerRadio" value="ウ"/> ウ
             <input type="radio" name="answerRadio" value="エ"/> エ
           </p>
-          <input type="button" value="次の問題" onclick="buttonClick()"/>
+          <input type="button" value="次の問題"/>
         </div>
         <div id="time">
-          <p>経過時間:<label id="timer"/></p>
+          <p>経過時間:<label/>{timer}</p>
           <button>採点する</button>
         </div>
       </footer>
