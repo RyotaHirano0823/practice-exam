@@ -43,38 +43,6 @@ export default function Home() {
   var cnt = 0;
   var minits = 0;
 
-  // function testevent (){
-
-  //     cnt++;
-
-  //     if(cnt == 60)
-  //     {
-  //         minits += 1;
-  //     }
-  //     if(cnt < 60)
-  //     {
-  //         if(minits == 0)
-  //         {
-  //           settimer(cnt + "秒");
-  //         }
-  //         else
-  //         {
-  //           settimer(minits + "分" + cnt + "秒");
-  //         }
-          
-  //     }
-  //     else
-  //     {
-  //       cnt = 0;
-  //       settimer(minits + "分" + cnt + "秒");
-  //     }
-  //     console.log(timer2);
-  // }
-
-  // タイマー開始
-  //setInterval(event, 1000);
-  //console.log(timer2);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -93,7 +61,32 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <div id="answer">
+        <div className={styles.questiontable}>
+            <table border="1" width="250">
+                <tr>
+                <th>問題No</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                </tr>
+                <tr>
+                <td>回答</td>
+                <td id="question1"></td>
+                <td id="question2"></td>
+                <td id="question3"></td>
+                <td id="question4"></td>
+                </tr>
+                <tr>
+                <td>チェック</td>
+                <td id="check1"></td>
+                <td id="check2"></td>
+                <td id="check3"></td>
+                <td id="check4"></td>
+              </tr>
+            </table>
+          </div>
+        <div className={styles.answer}>
           <p>回答欄<br/>
             <input type="radio" name="answerRadio" value="ア"/> ア
             <input type="radio" name="answerRadio" value="イ"/> イ
@@ -102,7 +95,7 @@ export default function Home() {
           </p>
           <input type="button" value="次の問題"/>
         </div>
-        <div id="time">
+        <div className={styles.time}>
           <p>経過時間:<label/>{timer}</p>
           <button>採点する</button>
         </div>
