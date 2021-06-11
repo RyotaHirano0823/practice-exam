@@ -1,16 +1,23 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const [mondaibun, setTime] = useState(null)
+  const [mondaibun, setMondaibun] = useState(null)
+  const [hyozimei, setHyozimei1] = useState(null)
+  const [hyozimei2, setHyozimei2] = useState(null)
+  const [hyozimei3, setHyozimei3] = useState(null)
+  const [hyozimei4, setHyozimei4] = useState(null)
   const [timer, settimer] = useState(null)
   useEffect(() => {
     fetch('/api/pgtest')
       .then(res => res.json())
       .then(data => {
-        setTime(data.mondaibun)
+        setMondaibun(data[0].mondaibun)
+        setHyozimei1(data[0].hyozimei)
+        setHyozimei2(data[1].hyozimei)
+        setHyozimei3(data[2].hyozimei)
+        setHyozimei4(data[3].hyozimei)
         console.log(data)
       });setInterval(() =>
       {
@@ -58,6 +65,10 @@ export default function Home() {
         <p>
           <strong>問題</strong>： {mondaibun}
         </p>
+        <p>{hyozimei}</p>
+        <p>{hyozimei2}</p>
+        <p>{hyozimei3}</p>
+        <p>{hyozimei4}</p>
       </main>
 
       <footer className={styles.footer}>

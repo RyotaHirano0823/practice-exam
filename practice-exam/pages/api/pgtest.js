@@ -13,5 +13,5 @@ export default async (req, res) => {
     // 書いたSQLが実行される。下記の例は、現在時間
     const { rows: results } = await client.query('select mondai.mondaibun, sentakusi.hyozimei from mondai inner join sentakusi on mondai.id = sentakusi.id')
     // 複数県の場合は、そのままresultsを設定。1件だとわかっている場合は[0]
-    res.status(200).json(results[0])
+    res.status(200).json(results)
 }
