@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
-var no = 2;
+import Router from 'next/router'
+var no = 5;
 export default function Home() {
   const [mondaiNen, setMondainen] = useState(null)
   const [mondaibun, setMondaibun] = useState(null)
@@ -15,18 +16,18 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         
-        setMondaibun(data[2].mondaibun)
-        setHyozimei1(data[5].hyozimei)
-        setHyozimei2(data[6].hyozimei)
-        setHyozimei3(data[7].hyozimei)
-        setHyozimei4(data[8].hyozimei)
+        setMondaibun(data[no].mondaibun)
+        setHyozimei1(data[no+3].hyozimei)
+        setHyozimei2(data[no+2].hyozimei)
+        setHyozimei3(data[no+1].hyozimei)
+        setHyozimei4(data[no].hyozimei)
         console.log(data)
       });
       fetch('/api/pgtest_all')
       .then(res => res.json())
       .then(data => {
         
-        setMondainen(data[no].name)
+        setMondainen(data[0].name)
         console.log(data)
       });
       setInterval(() =>
@@ -56,9 +57,6 @@ export default function Home() {
       }
       }, 1000);
   }, [])
-  const buttonAlert = () => {
-    alert('Clicked!');
-  }
   // setIntervalの基本
   var cnt = 0;
   var minits = 0;
@@ -112,12 +110,12 @@ export default function Home() {
           </div>
         <div className={styles.answer}>
           <p>回答欄<br/>
-            <input type="radio" name="answerRadio" value="ア"/> ア
-            <input type="radio" name="answerRadio" value="イ"/> イ
-            <input type="radio" name="answerRadio" value="ウ"/> ウ
-            <input type="radio" name="answerRadio" value="エ"/> エ
+            <input type="radio" name="answerRadio" value="1"/> ア
+            <input type="radio" name="answerRadio" value="2"/> イ
+            <input type="radio" name="answerRadio" value="3"/> ウ
+            <input type="radio" name="answerRadio" value="4"/> エ
           </p>
-          <input type="button" value="次の問題" onClick={buttonAlert}/>
+          <input type="button" value="次の問題" onClick={() => Router.push('/index3')}/>
         </div>
         <div className={styles.time}>
           <p>経過時間:<label/>{timer}</p>

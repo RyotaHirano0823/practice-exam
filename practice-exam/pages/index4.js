@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Router from 'next/router'
-var no = 0;
+var no = 13;
 export default function Home() {
   const [mondaiNen, setMondainen] = useState(null)
   const [mondaibun, setMondaibun] = useState(null)
@@ -23,18 +23,11 @@ export default function Home() {
         setHyozimei4(data[no].hyozimei)
         console.log(data)
       });
-      fetch('/api/answer')
-      .then(res => res.json())
-      .then(data => {
-        
-        setMondainen(data[no].kaitou_sentakuid)
-        console.log(data)
-      });
       fetch('/api/pgtest_all')
       .then(res => res.json())
       .then(data => {
         
-        setMondainen(data[no].name)
+        setMondainen(data[0].name)
         console.log(data)
       });
       setInterval(() =>
@@ -67,11 +60,6 @@ export default function Home() {
   // setIntervalの基本
   var cnt = 0;
   var minits = 0;
-
-  const answerSet = () => 
-  {
-    Router.push('/index2');
-  }
 
   return (
     <div className={styles.container}>
@@ -127,7 +115,7 @@ export default function Home() {
             <input type="radio" name="answerRadio" value="3"/> ウ
             <input type="radio" name="answerRadio" value="4"/> エ
           </p>
-          <input type="button" value="次の問題" onClick={answerSet}/>
+          <input type="button" value="次の問題" onClick={() => Router.push('/index5')}/>
         </div>
         <div className={styles.time}>
           <p>経過時間:<label/>{timer}</p>
